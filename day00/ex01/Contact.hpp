@@ -1,26 +1,25 @@
 #pragma once
 #include <string>
-#include "PhoneBook.hpp"
-
-using namespace	std;
 
 class Contact
 {
 private:
+	static int	id_generator;
 	int			id;
-	string		firstName;
-	string		lastName;
-	string		nickName;
-	string		numberPhone;
-	string		secret;
+	std::string		firstName;
+	std::string		lastName;
+	std::string		nickName;
+	std::string		numberPhone;
+	std::string		secret;
 public:
-	Contact();
-	Contact(string info[]);
+	Contact() {};
+	Contact(std::string info[]);
 
-	int		getId();
-	string	getFirstName();
-	string	getLastName();
-	string	getNickName();
-	string	getNumberPhone();
-	string	getSecret();
+	int			getId();
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getNickName();
+	std::string	getNumberPhone();
+	std::string	getSecret();
 };
+

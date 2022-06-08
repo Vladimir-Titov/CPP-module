@@ -3,21 +3,13 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-static bool	isEmptyInput(string input)
+int Contact::id_generator = 1;
+
+static bool isDigit(char c)
 {
-	if (input == "" || input.size() == 0)
-	{
-		cout << "Not valid input!" << endl;
-		return (true);
-	}
-	for (size_t i = 0; i < input.size(); i++)
-	{
-		if (input[i] != ' ')
-			return (false);
-		continue;
-	}
-	cout << "Not valid input!" << endl;
-	return (true);
+	if (c >= '0' && c <= '9')
+		return true;
+	return false;
 }
 
 int main()
@@ -25,40 +17,41 @@ int main()
 	PhoneBook	phonebook;
 	for (int exit = 0; exit != 1;)
 	{
-		string	command;
-		cout << "You can use these command: ADD, SEARCH, EXIT" << endl;
-		getline(cin, command);
-		if (command == "ADD")
+		std::string	command;
+		std::cout << "You can use these command: ADD, SEARCH, EXIT" << std::endl;
+		std::cin >> command; 
+		if (command == "ADD" || command == "add")
 		{
-			string	info[5];
-			cout << "Enter first name: " ;
-			getline(cin, info[0]);
-			if (isEmptyInput(info[0]))
-				break ;
-			cout << "Enter last name: " ;
-			getline(cin, info[1]);
-			if (isEmptyInput(info[1]))
-				break ;
-			cout << "Enter nick: " ;
-			getline(cin, info[2]);
-			if (isEmptyInput(info[2]))
-				break ;
-			cout << "Enter phone number: " ;
-			getline(cin, info[3]);
-			if (isEmptyInput(info[3]))
-				break ;
-			cout << "Enter secret: " ;
-			getline(cin, info[4]);
-			if (isEmptyInput(info[4]))
-				break ;
+			std::string	info[5];
+			std::cout << "Enter first name: " ;
+			std::cin >> info[0];
+			std::cout << "Enter last name: " ;
+			std::cin >> info[1];
+			std::cout << "Enter nick: " ;
+			std::cin >> info[2];
+			std::cout << "Enter phone number: " ;
+			std::cin >> info[3];
+			std::cout << "Enter secret: " ;
+			std::cin >> info[4];
 			phonebook.addContact(Contact(info));
 		}
-		if (command == "SEARCH")
+		if (command == "SEARCH" || command == "search")
 		{
-			string	id;
-			cout << "Enter id: " << endl;
-			getline(cin, id);
+			char	id;
 			phonebook.outContact();
+			std::cout << "Enter id: " << std::endl;
+			std::cin >> id;
+			std::cin.ignore(256, '\n');
+			if (isDigit(id))
+			{
+				id -= '0';
+				if (!phonebook.outId(id))
+					std::cout << "Wrong id!" << std::endl;
+			}
+			else
+				std::cout << "Wrong id!" << std::endl;
 		}
+		if (command == "EXIT" || command == "exit")
+			exit = 1;
 	}
 }
