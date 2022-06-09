@@ -3,13 +3,6 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-// static bool isDigit(char c)
-// {
-// 	if (c >= '0' && c <= '9')
-// 		return true;
-// 	return false;
-// }
-
 int main()
 {
 	PhoneBook	phonebook;
@@ -19,7 +12,7 @@ int main()
 		std::string	command;
 		std::cout << "You can use these command: ADD, SEARCH, EXIT" << std::endl;
 		std::cin >> command; 
-		if (command == "ADD" || command == "add")
+		if (command == "ADD")
 		{
 			std::string	info[5];
 			std::cout << "Enter first name: " ;
@@ -37,7 +30,7 @@ int main()
 			if (id == 9)
 				id = 1;
 		}
-		if (command == "SEARCH" || command == "search")
+		if (command == "SEARCH")
 		{
 			std::string	id;
 			phonebook.outContact();
@@ -47,7 +40,7 @@ int main()
 			if (!phonebook.outId(PhoneBook::convertToInt(id)))
 				std::cout << "Wrong id!" << std::endl;
 		}
-		if (command == "EXIT" || command == "exit")
+		if (command == "EXIT")
 			exit = 1;
 	}
 }

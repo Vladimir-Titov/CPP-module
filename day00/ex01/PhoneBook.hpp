@@ -1,4 +1,7 @@
 #pragma once
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
 
 #include <iostream>
 #include <iomanip>
@@ -16,9 +19,11 @@ private:
 public:
 	PhoneBook();
 
-	void	addContact(Contact contact);
-	void	outContact(void);
-	bool	outId(int id);
-	static	int convertToInt(std::string num);
-	void	print_head(bool full_head=true);
+	void		addContact(Contact contact);
+	void		outContact(void);
+	bool		outId(int id);
+	static int	convertToInt(std::string num);
+	void		print_head(bool full_head=true);
 };
+
+#endif
