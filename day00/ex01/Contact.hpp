@@ -4,8 +4,7 @@
 class Contact
 {
 private:
-	static int	id_generator;
-	int			id;
+	int				id;
 	std::string		firstName;
 	std::string		lastName;
 	std::string		nickName;
@@ -13,7 +12,7 @@ private:
 	std::string		secret;
 public:
 	Contact() {};
-	Contact(std::string info[]);
+	Contact(std::string info[], int id);
 
 	int			getId();
 	std::string	getFirstName();

@@ -1,15 +1,13 @@
 #include "Contact.hpp"
 
-Contact::Contact(std::string info[]) 
+Contact::Contact(std::string info[], int id) 
 {
 	this->firstName = info[0];
 	this->lastName = info[1];
 	this->nickName = info[2];
 	this->numberPhone = info[3];
 	this->secret = info[4];
-	if (Contact::id_generator == 8)
-		Contact::id_generator = 1;
-	this->id = Contact::id_generator++;
+	this->id = id;
 }
 
 int	Contact::getId()

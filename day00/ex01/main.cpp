@@ -3,18 +3,17 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int Contact::id_generator = 1;
-
-static bool isDigit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return true;
-	return false;
-}
+// static bool isDigit(char c)
+// {
+// 	if (c >= '0' && c <= '9')
+// 		return true;
+// 	return false;
+// }
 
 int main()
 {
 	PhoneBook	phonebook;
+	int			id = 1;
 	for (int exit = 0; exit != 1;)
 	{
 		std::string	command;
@@ -33,22 +32,19 @@ int main()
 			std::cin >> info[3];
 			std::cout << "Enter secret: " ;
 			std::cin >> info[4];
-			phonebook.addContact(Contact(info));
+			phonebook.addContact(Contact(info, id));
+			id++;
+			if (id == 9)
+				id = 1;
 		}
 		if (command == "SEARCH" || command == "search")
 		{
-			char	id;
+			std::string	id;
 			phonebook.outContact();
 			std::cout << "Enter id: " << std::endl;
 			std::cin >> id;
 			std::cin.ignore(256, '\n');
-			if (isDigit(id))
-			{
-				id -= '0';
-				if (!phonebook.outId(id))
-					std::cout << "Wrong id!" << std::endl;
-			}
-			else
+			if (!phonebook.outId(PhoneBook::convertToInt(id)))
 				std::cout << "Wrong id!" << std::endl;
 		}
 		if (command == "EXIT" || command == "exit")
