@@ -86,4 +86,5 @@ void	PhoneBook::print_head(bool full_head)
 		std::setw(10) << "Last name" 	   << " | " <<
 		std::setw(10) << "Nick"			   << std::endl;
 	}
+	std::cout << std::endl;
 }
