@@ -1,6 +1,6 @@
-NAME	=	replace
+NAME	=	Harl
 
-SRC		=	main.cpp FileChanger.cpp\
+SRC		=	main.cpp Harl.cpp\
 
 CC		=	g++
 

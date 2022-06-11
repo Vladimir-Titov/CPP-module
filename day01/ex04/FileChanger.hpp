@@ -10,7 +10,6 @@ class FileChanger
 private:
 	std::ifstream	_inputFile;
 	std::ofstream	_outFile;
-	std::string		_oldContent;
 	std::string		_newContent;
 	std::string		_oldStr;
 	std::string		_newStr;
@@ -19,8 +18,9 @@ public:
 	FileChanger(){};
 	FileChanger(char **argv);
 
-	void	replaceOldStr();
-	bool	changeFile();
+	bool	isFindStr(size_t pos_start);
+	void	closeFiles();
+	bool	replaceInFile();
 };
 
 
