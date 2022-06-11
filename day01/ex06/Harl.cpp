@@ -20,16 +20,6 @@ void Harl::error()
 	std::cout << "ERROR" << std::endl;
 }
 
-Harl::Harl()
-{
-	return ;
-}
-
-Harl::~Harl()
-{
-	return ;
-}
-
 void Harl::complain(std::string level)
 {
 	void		(Harl::*func[4])(void);
@@ -46,16 +36,22 @@ void Harl::complain(std::string level)
 
 	switch (index)
 	{
-	case 0:
-		(this->*func[0])();
-		break;
-	case 1:
-		(this->*func[1])();
+	case 3:
+		(this->*func[3])();
 		break;
 	case 2:
 		(this->*func[2])();
+		(this->*func[3])();
 		break;
-	case 3:
+	case 1:
+		(this->*func[1])();
+		(this->*func[2])();
+		(this->*func[3])();
+		break;
+	case 0:
+		(this->*func[0])();
+		(this->*func[1])();
+		(this->*func[2])();
 		(this->*func[3])();
 		break;
 	default:
