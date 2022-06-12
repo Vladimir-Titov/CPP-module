@@ -28,5 +28,12 @@ int main( void ) {
 	std::cout << (c - d) << std::endl;
 	std::cout << (c * d) << std::endl;
 	std::cout << (c / d) << std::endl;
+	std::cout << "----------Check one more tests----------" << std::endl;
+	const Fixed one(10);
+	const Fixed second(float(5.0));
+	std::cout << Fixed::max(one, second) << std::endl;
+	std::cout << Fixed::min(one, second) << std::endl;
+	std::cout << (one / second) << std::endl;
+	std::cout << (one * second) << std::endl;
 	return 0;
 }
