@@ -3,39 +3,40 @@
 Point::Point()
 : _x(Fixed(0)), _y(Fixed(0))
 {
-	;
 }
 
 Point::Point(const float x, const float y)
 : _x(Fixed(x)), _y(Fixed(y))
 {
-	std::cout << "float constructor" << std::endl;
-	std::cout << x << ", " << y << std::endl;
 }
 
 Point::Point(const Point &point)
+: _x(point._x) , _y(point._y)
 {
-	*this = point;
 }
 
 Point::~Point()
 {
-	;
 }
 
-Point& Point::operator=(const Point &point)
+Point& Point::operator=(Point &point)
 {
-	(void) point;
-	return *this;
+	return point;
 }
 
-const Fixed&	Point::getX() const
+Fixed	Point::getX() const
 {
 	return this->_x;
 }
 
-const Fixed&	Point::getY() const
+Fixed	Point::getY() const
 {
 	return this->_y;
+}
+
+std::ostream& operator<<(std::ostream &out, const Point &p)
+{
+	out << "(" << p._x << ", " << p._y << ")";
+	return out;
 }
 

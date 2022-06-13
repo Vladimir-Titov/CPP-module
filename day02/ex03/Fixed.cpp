@@ -22,7 +22,6 @@ Fixed::Fixed(int value)
 
 Fixed::Fixed(float value)
 {
-	std::cout << "[Fixed] float constructor" << std::endl;
 	this->_value = roundf(value * (1 << Fixed::_fraction));
 }
 

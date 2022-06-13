@@ -6,8 +6,8 @@
 class Point
 {
 private:
-	const Fixed	_x;
-	const Fixed	_y;
+	Fixed const	_x;
+	Fixed const	_y;
 
 public:
 	Point();
@@ -15,9 +15,11 @@ public:
 	Point(const Point &point);
 	~Point();
 
-	Point&			operator=(const Point &point);
-	const Fixed&	getX() const;
-	const Fixed&	getY() const;
+	Point					&operator=(Point &point);
+	Fixed					getX() const;
+	Fixed					getY() const;
+
+	friend	std::ostream&	operator<<(std::ostream &out, const Point &p);
 };
 
 #endif
