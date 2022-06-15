@@ -8,14 +8,14 @@ OBJ		=	$(SRC:.cpp=.o)
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-.PHONY	:	all clean fclean re
+.PHONY	:	all clean fclean re leaks
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
-%.o		:	%.cpp
+%.o		:	%.cpp Zombie.hpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean	:
@@ -23,5 +23,8 @@ clean	:
 
 fclean	:	clean
 	rm -f $(NAME)
+
+leaks	:	all
+	leaks --atExit -- ./$(NAME)
 
 re		:	fclean all

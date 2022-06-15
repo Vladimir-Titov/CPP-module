@@ -16,7 +16,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
-%.o		:	%.cpp
+%.o		:	%.cpp HumanA.hpp HumanB.hpp Weapon.hpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean	:

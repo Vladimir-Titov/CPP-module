@@ -1,7 +1,7 @@
 NAME	=	bsp
 
 SRC		=	main.cpp Fixed.cpp Point.cpp\
-			bsp.cpp
+			bsp.cpp\
 
 CC		=	g++
 
@@ -16,7 +16,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
-%.o		:	%.cpp
+%.o		:	%.cpp Fixed.hpp Point.hpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean	:

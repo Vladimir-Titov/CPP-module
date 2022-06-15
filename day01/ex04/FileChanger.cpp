@@ -4,7 +4,7 @@
 FileChanger::FileChanger(char **argv)
 {
 	this->_inputFile.open(argv[1]);
-	this->_outFile.open("out.replace");
+	this->_outFile.open(std::string(argv[1]) + ".replace");
 	this->_oldStr = std::string(argv[2]);
 	this->_newStr = std::string(argv[3]);
 }

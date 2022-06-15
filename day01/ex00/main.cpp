@@ -11,4 +11,5 @@ int main()
 	randomChump("SomeOneZombie");
 	randomChump("OneMoreZombie");
 	delete heapZombie;
+	return 0;
 }

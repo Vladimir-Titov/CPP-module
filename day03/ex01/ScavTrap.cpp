@@ -13,10 +13,7 @@ ScavTrap::ScavTrap(std::string name)
 
 ScavTrap::ScavTrap(const ScavTrap &scave)
 {
-	this->_name = scave._name;
-	this->_hitPoints = scave._hitPoints;
-	this->_energy = scave._energy;
-	this->_damage = scave._damage;
+	this->_hitPoints = scave.getHitPoints();
 }
 
 ScavTrap::~ScavTrap()

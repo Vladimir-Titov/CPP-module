@@ -1,4 +1,4 @@
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	brains
 
 SRC		=	main.cpp	Zombie.cpp	newZombie.cpp\
 			randomChump.cpp \
@@ -9,11 +9,11 @@ OBJ		=	$(SRC:.cpp=.o)
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-.PHONY	:	all clean fclean re
+.PHONY	:	all clean fclean re leaks
 
 all		:	$(NAME)
 
-$(NAME)	:	$(OBJ)
+$(NAME)	:	$(OBJ) Zombie.hpp
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
 %.o		:	%.cpp
@@ -24,5 +24,8 @@ clean	:
 
 fclean	:	clean
 	rm -f $(NAME)
+
+leaks	:	all
+	leaks --atExit -- ./$(NAME)
 
 re		:	fclean all

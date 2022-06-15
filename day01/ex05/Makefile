@@ -15,7 +15,7 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJ)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
-%.o		:	%.cpp
+%.o		:	%.cpp Harl.hpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean	:
